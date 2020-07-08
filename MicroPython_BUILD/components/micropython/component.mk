@@ -302,16 +302,20 @@ LIB_SRC_C += \
 	lib/berkeley-db-1.xx/mpool/mpool.c
 endif
 
+TEMP_SRC_C := loopback/loopback.c
+
 OBJ_MP =
 OBJ_MP += $(PY_O)
+OBJ_MP += $(addprefix $(BUILD)/, $(TEMP_SRC_C:.c=.o))
 OBJ_MP += $(addprefix $(BUILD)/, $(SRC_C:.c=.o))
 OBJ_MP += $(addprefix $(BUILD)/, $(EXTMOD_SRC_C:.c=.o))
 OBJ_MP += $(addprefix $(BUILD)/, $(LIB_SRC_C:.c=.o))
 OBJ_MP += $(addprefix $(BUILD)/, $(LIBS_SRC_C:.c=.o))
 
+
 # List of sources for qstr extraction
 # ------------------------------------------------------------------------------
-SRC_QSTR += $(SRC_C) $(EXTMOD_SRC_C) $(LIB_SRC_C) $(DRIVERS_SRC_C) $(LIBS_SRC_C)
+SRC_QSTR += $(SRC_C) $(EXTMOD_SRC_C) $(LIB_SRC_C) $(DRIVERS_SRC_C) $(LIBS_SRC_C) $(TEMP_SRC_C)
 # Append any auto-generated sources that are needed by sources listed in SRC_QSTR
 SRC_QSTR_AUTO_DEPS +=
 

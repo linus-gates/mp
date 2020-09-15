@@ -2,6 +2,8 @@
 
 import sys
 
+
 # Set default path
 # Needed for importing modules and upip
 sys.path[1] = '/flash/lib'
+print ("am")

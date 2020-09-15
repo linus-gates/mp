@@ -217,10 +217,10 @@ void mp_task(void *pvParameter)
             printf("     uPY heap: %u/%u/%u bytes\n\n", info.total, info.used, info.free);
         }
     }
-
+    pyexec_frozen_module("refresh_wd.py");
 	// === Main loop ==================================
 	MP_THREAD_GIL_EXIT();
-
+	printf("hello from main\n");
 	// === Start REPL in main task ====================
 	ReplTaskHandle = MainTaskHandle;
 	for (;;) {
